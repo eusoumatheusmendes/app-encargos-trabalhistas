@@ -2,22 +2,24 @@ package br.com.encargostrabalhistas.entities;
 
 import br.com.encargostrabalhistas.services.Encargos;
 
-public class DecimoTerceiro implements Encargos {
+public class Ferias implements Encargos {
 
     private Funcionario funcionario;
 
-    public Funcionario getFuncionario() {
-        return funcionario;
-    }
-
     @Override
     public double getValor() {
-        return this.funcionario.getSalario();
+        double umTercoDeFerias = this.funcionario.getSalario()/3;
+        double valorSalarioEFerias = this.funcionario.getSalario() + umTercoDeFerias;
+        return valorSalarioEFerias;
     }
 
     @Override
     public double getValorMensal() {
-        return this.getValor()/12;
+        return getValor()/12;
+    }
+
+    public Funcionario getFuncionario() {
+        return funcionario;
     }
 
     public void setFuncionario(Funcionario funcionario) {
