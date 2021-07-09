@@ -5,13 +5,21 @@ import br.com.encargostrabalhistas.services.Encargos;
 public class CalculadoraDeEncargosTrabalhistas {
 
     private double total;
+    private double custoMensal;
 
-    public double getTotal(Encargos encargos){
+    public void calcularEncargosTotais(Encargos encargos){
        this.total += encargos.getValor();
-       return this.total;
     }
 
-    public double getEncargosMensais(){
-        return this.total/12;
+    public void calcularEncargosMensais(Encargos encargos){
+        this.custoMensal += encargos.getValorMensal();
+    }
+
+    public double getTotal() {
+        return total;
+    }
+
+    public double getCustoMensal() {
+        return custoMensal;
     }
 }
